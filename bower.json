@@ -1,0 +1,26 @@
+{
+  "name": "angular-state-loader",
+  "homepage": "https://github.com/entrecode/angular-state-loader",
+  "authors": [
+    "Felix Roos <roos@entrecode.de>"
+  ],
+  "description": "Loading Spinner for UI Router (AngularJS) that is shown while loading a states resolves. Can be restricted to specific state transitions. Including the optional parameters force-show and delay + the possibility to show a custom loader.",
+  "main": "dist/angular-state-loader.js",
+  "moduleType": [],
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-ui-router": "ui-router#~0.2.15"
+  }
+}
