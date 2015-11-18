@@ -1,7 +1,7 @@
 /**
  * Created by felix on 18.11.15.
  */
-angular.module('angular-state-loader', []).directive('stateLoader', function($rootScope, $timeout) {
+angular.module('ec.stateloader', []).directive('stateLoader', function($rootScope, $timeout) {
   //credits to http://stackoverflow.com/questions/24200909/apply-loading-spinner-during-ui-router-resolve
   return {
     scope:      {
