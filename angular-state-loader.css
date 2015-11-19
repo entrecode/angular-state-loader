@@ -12,11 +12,14 @@
 }
 
 @-webkit-keyframes rotate {
-    from {
-        -webkit-transform: rotate(0deg);
+    0% {
+        -webkit-transform: rotate(0deg) scale(1);
     }
-    to {
-        -webkit-transform: rotate(360deg);
+    25% {
+        -webkit-transform: rotate(90deg) scale(0.7);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) scale(1);
     }
 }
 

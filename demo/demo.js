@@ -1,7 +1,7 @@
 /**
  * Created by felix on 18.11.15.
  */
-angular.module('stateLoaderDemo', ['ui.router', 'angular-state-loader'])
+angular.module('stateLoaderDemo', ['ui.router', 'ec.stateloader'])
 
   .run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
     $rootScope.$state = $state;

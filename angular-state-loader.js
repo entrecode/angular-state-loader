@@ -41,7 +41,7 @@ angular.module('ec.stateloader', []).directive('stateLoader', function($rootScop
 
           transcludeFn(elem, function(clone) {
             //check if element contains custom loading text/html
-            scope.transcluding = clone.text().trim().length > 0;
+            scope.transcluding = clone.length > 0;
           });
         },
         post: function postLink(scope, element) {

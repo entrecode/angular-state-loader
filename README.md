@@ -1,5 +1,5 @@
 # angular-state-loader
-Loading Spinner for UI Router (AngularJS) that is shown while loading a states resolves. Can be restricted to specific state transitions. Including the optional parameters force-show and delay + the possibility to show a custom loader.
+Loading Spinner for UI Router (AngularJS) that is automatically shown while loading a states resolves. Can be restricted to specific state transitions. Including the optional parameters force-show and delay + the possibility to show a custom loader.
 
 ##Installation
 Install angular-state-loader bower package:
@@ -83,6 +83,29 @@ This Loader will show up when the loadData Function is invoked. When the Promise
 
 Expects a string. Restricts the loader to be shown only if coming from the given state name.
 
+```html
+<state-loader from-state="bakery"></state-loader>
+```
+
 ###to-state
 
 Expects a string. Restricts the loader to be shown only if going to the given state name.
+
+```html
+<state-loader to-state="bakery.muffins"></state-loader>
+```
+
+###Full Example
+
+At last, here is a full example of how it can be used fully customized:
+
+```html
+<state-loader from-state="bakery" to-state="bakery.muffins" delay="500">
+<h3>Loading incredible amount of muffins!</h3>
+</state-loader>
+```
+
+The above loader will only show if transitioning from state "bakery" to state "bakery.muffins" after 500ms loading time, showing a custom message.
+
+##CSS Classes
+The Loader is wrapped in a div with the ```.angular-state-loader``` class which is by default positioned absolute with 100% width and height. By applying ```rotate-right``` to a custom element inside ```<state-loader>```, it will.. guess what?
