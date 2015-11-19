@@ -23,7 +23,7 @@ angular.module('stateLoaderDemo', ['ui.router', 'ec.stateloader'])
           return deferred.promise;
         }
       },
-      template:   '<p>This Page took {{delay}}ms to load!</p>',
+      templateUrl:   'example.tpl.html',
       controller: function($scope, $stateParams, data) {
         $scope.delay = $stateParams.delay;
         console.log(data);
