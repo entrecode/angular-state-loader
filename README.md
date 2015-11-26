@@ -111,3 +111,6 @@ The above loader will only show if transitioning from state "bakery" to state "b
 
 ##CSS Classes
 The Loader is wrapped in a div with the ```.angular-state-loader``` class which is by default positioned absolute with 100% width and height. By applying ```rotate-right``` to a custom element inside ```<state-loader>```, it will.. guess what?
+
+##Demo
+To run the Demo, install angular-state-loader and then run bower install inside its root folder. The index.html in the demo folder contains a small demo with different loading times (the same as the gif above).
