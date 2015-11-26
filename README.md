@@ -34,7 +34,7 @@ If you do not want to use material icons, always use a custom template like expl
 
 ##How to include
 
-After Installing, the ```<state-loader>```-directive is available. Without further parameters, the 
+After Installing, the ```<state-loader>```-directive is available. 
 
 ###Basic Loader
 The Basic Loader with the default templates does not require any addional parameters, just place ```<state-loader></state-loader>``` somewhere in the template where you want to show a loader. This loader wil be displayed on every state change.
