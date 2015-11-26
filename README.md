@@ -19,7 +19,7 @@ Add ```angular-state-loader.js``` and ```angular-state-loader.css``` dependencie
 Add Angular module ```ec.stateloader``` as dependency to your app:
 
 ```javascript
-angular.module('myApp', ['ui.router', 'angular-state-loader'])
+angular.module('myApp', ['ui.router', 'ec.stateloader'])
 /* ... */
 ```
 
