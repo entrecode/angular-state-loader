@@ -1,6 +1,7 @@
 /**
  * Created by felix on 18.11.15.
  */
+'use strict';
 angular.module('stateLoaderDemo', ['ui.router', 'ec.stateloader'])
 
   .run(['$rootScope', '$state', '$stateParams', function($rootScope, $state, $stateParams) {
@@ -11,8 +12,8 @@ angular.module('stateLoaderDemo', ['ui.router', 'ec.stateloader'])
       url:         "/",
       templateUrl: 'basic.tpl.html'
     }).state('example', {
-      url:        '/example/:delay',
-      resolve:    {
+      url:         '/example/:delay',
+      resolve:     {
         data: function($stateParams, $timeout, $q) {
           var deferred = $q.defer();
 
@@ -23,10 +24,11 @@ angular.module('stateLoaderDemo', ['ui.router', 'ec.stateloader'])
           return deferred.promise;
         }
       },
-      templateUrl:   'example.tpl.html',
-      controller: function($scope, $stateParams, data) {
+      templateUrl: 'example.tpl.html',
+      controller:  function($scope, $stateParams, data) {
         $scope.delay = $stateParams.delay;
         console.log(data);
       }
     });
+    $urlRouterProvider.otherwise('/');
   }]);
