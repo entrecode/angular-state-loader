@@ -2,13 +2,40 @@
  * Created by felix on 18.11.15.
  */
 'use strict';
-angular.module('ec.stateloader', []).directive('stateLoader', ['$rootScope',
+angular.module('ec.stateloader', []).provider('stateLoader', function() {
+  var settings = {
+    template:    '<div class="angular-state-loader">' +
+                 '<span ng-hide="transcluding">' +
+                 '<i class="material-icons rotate-right">autorenew</i>' +
+                 '</span><ng-transclude></ng-transclude></div>',
+    templateUrl: null
+  };
+
+  this.setTemplate = function(tpl) {
+    settings.template = tpl;
+  };
+  this.getTemplate = function() {
+    return settings.template;
+  };
+  this.setTemplateUrl = function(tpl) {
+    settings.templateUrl = tpl;
+  };
+  this.getTemplateUrl = function() {
+    return settings.templateUrl;
+  };
+
+  this.$get = function() {
+    return this;
+  };
+}).directive('stateLoader', [
+  '$rootScope',
   '$timeout',
-  function($rootScope, $timeout) {
+  'stateLoader',
+  function($rootScope, $timeout, stateLoader) {
     //credits to
     // http://stackoverflow.com/questions/24200909/apply-loading-spinner-during-ui-router-resolve
     return {
-      scope:      {
+      scope:       {
         fromState: '@', //restrict showing loader only
                         // when loading from this state
                         // name
@@ -17,10 +44,10 @@ angular.module('ec.stateloader', []).directive('stateLoader', ['$rootScope',
         delay:     '@', //show loader after ms loading time
         forceShow: '='
       },
-      restrict:   'E',
-      transclude: true,
-      replace:    true,
-      compile:    function(elem, attrs, transcludeFn) {
+      restrict:    'E',
+      transclude:  true,
+      replace:     true,
+      compile:     function(elem, attrs, transcludeFn) {
         var timer;
         return {
           pre:  function preLink(scope) {
@@ -87,8 +114,7 @@ angular.module('ec.stateloader', []).directive('stateLoader', ['$rootScope',
           }
         };
       },
-      template:   '<div class="angular-state-loader"><span ng-hide="transcluding">' +
-                  '<i class="material-icons rotate-right">autorenew</i>' +
-                  '</span><ng-transclude></ng-transclude></div>'
+      template:    !stateLoader.getTemplateUrl() ? stateLoader.getTemplate() : null,
+      templateUrl: stateLoader.getTemplateUrl() || null
     };
   }]);

@@ -39,11 +39,33 @@ After Installing, the ```<state-loader>```-directive is available.
 ###Basic Loader
 The Basic Loader with the default templates does not require any addional parameters, just place ```<state-loader></state-loader>``` somewhere in the template where you want to show a loader. This loader wil be displayed on every state change.
 
-###Custom Loader
+###Custom Loader at runtime
 If you want to have a custom loader (or do not want to use material-icons), just  make sure your ```<state-loader>```-tag is not empty:
 
 ```html
 <state-loader><h1>LOADING</h1></state-loader>
+```
+
+###Change default template
+If you want to change the default template for all loaders, you can use the stateLoaderProvider in your config.
+
+You can either configure a template url with setTemplateUrl:
+
+```javascript
+angular.module('myApp', ['ui.router', 'ec.stateloader'])
+    .config(function('stateLoaderProvider') {
+        stateLoaderProvider.setTemplateUrl('custom.tpl.html');   
+     });
+```
+
+Or a template snippet with setTemplate:
+
+```javascript
+angular.module('myApp', ['ui.router', 'ec.stateloader'])
+    .config(function('stateLoaderProvider') {
+        stateLoaderProvider.setTemplate('<div class="angular-state-loader">' +
+        '<h1>LOHOHOHOHOADING!</h1></div>');
+     });
 ```
 
 ##Additional Properties
