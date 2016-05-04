@@ -9,6 +9,7 @@
     "angular-state-loader.js",
     "angular-state-loader.css"
   ],
+  "version": "0.3.0",
   "moduleType": [],
   "keywords": [
     "angular"
