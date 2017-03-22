@@ -7,6 +7,8 @@ Loading Spinner for UI Router (AngularJS) that is automatically shown while load
 Install angular-state-loader bower package:
 
 ```sh
+npm install --save angular-state-loader
+# or
 bower install angular-state-loader --save
 ```
 
