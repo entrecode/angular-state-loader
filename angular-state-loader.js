@@ -28,10 +28,10 @@ angular.module('ec.stateloader', []).provider('stateLoader', function() {
     return this;
   };
 }).directive('stateLoader', [
-  '$rootScope',
   '$timeout',
+  '$transitions',
   'stateLoader',
-  function($rootScope, $timeout, stateLoader) {
+  function($timeout, $transitions, stateLoader) {
     //credits to
     // http://stackoverflow.com/questions/24200909/apply-loading-spinner-during-ui-router-resolve
     return {
@@ -96,16 +96,14 @@ angular.module('ec.stateloader', []).provider('stateLoader', function() {
             });
 
             scope.hideLoader(element, true);
-
-            var show = $rootScope.$on('$stateChangeStart', function(event,
-              toState, toParams, fromState, fromParams) {
-              if (scope.shouldFire(fromState, toState)) {
+            
+            var show = $transitions.onStart({}, function($transition) {
+              if (scope.shouldFire($transition.$from(), $transition.$to())) {
                 scope.showLoader(element);
               }
             });
-            var hide = $rootScope.$on('$stateChangeSuccess', function(event,
-              toState, toParams, fromState, fromParams) {
-              if (scope.shouldFire(fromState, toState)) {
+            var hide = $transitions.onSuccess({}, function($transition) {
+              if (scope.shouldFire($transition.$from(), $transition.$to())) {
                 scope.hideLoader(element);
               }
             });
